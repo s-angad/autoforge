@@ -229,7 +229,7 @@ section {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 32px;
+    font-size: 36px;
   }
 
   h2 {
@@ -241,11 +241,11 @@ section {
   }
 
   p {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .container {
-    padding: 0 20px;
+    padding: 0 24px;
   }
 
   section {
@@ -267,6 +267,42 @@ section {
   }
 }
 
+@media (max-width: 600px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+
+  section {
+    padding: 40px 0;
+  }
+
+  .section-header {
+    margin-bottom: 35px;
+  }
+
+  .btn {
+    padding: 11px 20px;
+    font-size: 11px;
+    width: 100%;
+  }
+}
+
 @media (max-width: 480px) {
   h1 {
     font-size: 24px;
@@ -277,7 +313,11 @@ section {
   }
 
   h3 {
-    font-size: 16px;
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 12px;
   }
 
   .container {
@@ -285,7 +325,31 @@ section {
   }
 
   section {
-    padding: 40px 0;
+    padding: 35px 0;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 10px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .container {
+    padding: 0 14px;
+  }
+
+  section {
+    padding: 30px 0;
   }
 }
 

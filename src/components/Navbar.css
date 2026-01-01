@@ -95,8 +95,16 @@
     padding: 15px 30px;
   }
 
+  .navbar-logo {
+    font-size: 20px;
+  }
+
   .nav-links {
-    gap: 20px;
+    gap: 25px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
   }
 }
 
@@ -105,23 +113,105 @@
     padding: 12px 20px;
   }
 
+  .navbar-logo {
+    font-size: 18px;
+  }
+
   .navbar-container {
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
   }
 
   .nav-links {
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .nav-links a {
-    padding: 10px;
+    font-size: 12px;
+    padding: 8px;
   }
 
   .nav-links button {
+    padding: 10px 18px;
     margin-left: 0;
-    width: 100%;
+    width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 10px 16px;
+  }
+
+  .navbar-logo {
+    font-size: 16px;
+  }
+
+  .navbar-logo i {
+    display: none;
+  }
+
+  .nav-links {
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    padding: 6px;
+  }
+
+  .nav-links button {
+    padding: 8px 14px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 12px;
+  }
+
+  .navbar-logo {
+    font-size: 14px;
+  }
+
+  .nav-links {
+    gap: 6px;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+    padding: 5px;
+    display: none;
+  }
+
+  .nav-links a:first-child,
+  .nav-links a:last-of-type {
+    display: block;
+  }
+
+  .nav-links button {
+    padding: 8px 12px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar {
+    padding: 8px 10px;
+  }
+
+  .navbar-logo {
+    font-size: 12px;
+  }
+
+  .nav-links button {
+    padding: 7px 10px;
+    font-size: 8px;
   }
 }

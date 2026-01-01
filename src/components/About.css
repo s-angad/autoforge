@@ -63,6 +63,20 @@
   box-shadow: 0 20px 40px rgba(255, 106, 0, 0.1);
 }
 
+@media (max-width: 1024px) {
+  .about-grid {
+    gap: 35px;
+  }
+
+  .about-card {
+    padding: 35px;
+  }
+
+  .about-card h3 {
+    font-size: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -70,6 +84,53 @@
   }
 
   .about-card {
-    padding: 30px;
+    padding: 28px;
+  }
+
+  .about-card h3 {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .about-card p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-grid {
+    gap: 18px;
+  }
+
+  .about-card {
+    padding: 24px;
+  }
+
+  .about-card h3 {
+    font-size: 16px;
+  }
+
+  .about-card p {
+    font-size: 12px;
+  }
+
+  .card-accent {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-card {
+    padding: 20px;
+  }
+
+  .about-card h3 {
+    font-size: 15px;
+  }
+
+  .card-accent {
+    width: 120px;
+    height: 120px;
   }
 }

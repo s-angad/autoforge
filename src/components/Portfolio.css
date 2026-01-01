@@ -62,8 +62,90 @@
   box-shadow: 0 20px 40px rgba(255, 106, 0, 0.2);
 }
 
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .portfolio-card {
+    height: 280px;
+  }
+
+  .portfolio-overlay {
+    padding: 25px;
+  }
+
+  .portfolio-overlay h3 {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 768px) {
   .portfolio-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .portfolio-card {
+    height: 250px;
+  }
+
+  .portfolio-overlay {
+    padding: 20px;
+  }
+
+  .portfolio-overlay h3 {
+    font-size: 16px;
+  }
+
+  .portfolio-overlay p {
+    font-size: 13px;
+  }
+
+  .tech-tag {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-grid {
+    gap: 16px;
+  }
+
+  .portfolio-card {
+    height: 220px;
+  }
+
+  .portfolio-overlay {
+    padding: 18px;
+  }
+
+  .portfolio-overlay h3 {
+    font-size: 15px;
+  }
+
+  .portfolio-overlay p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-card {
+    height: 200px;
+  }
+
+  .portfolio-overlay {
+    padding: 16px;
+  }
+
+  .portfolio-overlay h3 {
+    font-size: 14px;
+  }
+
+  .tech-tag {
+    padding: 4px 8px;
+    font-size: 10px;
   }
 }

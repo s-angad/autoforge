@@ -170,38 +170,65 @@
   .hero-content {
     grid-template-columns: 1fr;
     gap: 40px;
+    padding: 0 30px;
   }
 
   .hero {
     height: auto;
-    padding: 100px 0 60px;
+    padding: 80px 0 50px;
   }
 
-  h1 {
-    font-size: 48px;
+  .hero-subtitle {
+    font-size: 16px;
   }
 
   .hero-visual {
-    height: 250px;
+    height: 300px;
+  }
+
+  .floating-card {
+    width: 120px;
+    height: 120px;
+  }
+
+  .card-inner i {
+    font-size: 36px;
   }
 }
 
 @media (max-width: 768px) {
   .hero-content {
-    padding: 40px 0;
+    padding: 0 24px;
+  }
+
+  .hero {
+    padding: 70px 0 40px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    max-width: 100%;
   }
 
   .hero-ctas {
     flex-direction: column;
+    gap: 16px;
   }
 
   .hero-ctas button {
     width: 100%;
+    padding: 12px 24px;
   }
 
   .hero-stats {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 30px 24px;
+  }
+
+  .stat h3 {
+    font-size: 28px;
   }
 
   .floating-card {
@@ -210,6 +237,109 @@
   }
 
   .card-inner i {
-    font-size: 30px;
+    font-size: 28px;
+  }
+
+  .card-inner p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 0 30px;
+  }
+
+  .hero-content {
+    padding: 0 18px;
+    gap: 30px;
+  }
+
+  .hero-title {
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .hero-ctas {
+    gap: 12px;
+  }
+
+  .hero-ctas button {
+    padding: 11px 20px;
+    font-size: 12px;
+  }
+
+  .hero-visual {
+    height: 250px;
+  }
+
+  .hero-stats {
+    gap: 20px;
+    padding: 25px 18px;
+  }
+
+  .stat h3 {
+    font-size: 24px;
+  }
+
+  .stat p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 50px 0 25px;
+  }
+
+  .hero-content {
+    padding: 0 16px;
+  }
+
+  .hero-stats {
+    gap: 15px;
+    padding: 20px 16px;
+  }
+
+  .stat h3 {
+    font-size: 20px;
+  }
+
+  .floating-card {
+    width: 80px;
+    height: 80px;
+  }
+
+  .card-inner i {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-content {
+    padding: 0 14px;
+  }
+
+  .hero-ctas {
+    gap: 10px;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 14px;
+  }
+
+  .floating-card {
+    width: 70px;
+    height: 70px;
+  }
+
+  .card-inner i {
+    font-size: 20px;
   }
 }
