@@ -18,16 +18,17 @@
 
 @media (max-width: 480px) {
   .hero {
-    height: auto;
-    min-height: 100vh;
-    padding: 60px 0 40px;
+    height: 100vh;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
     perspective: 400px;
   }
 }
 
 @media (max-width: 375px) {
   .hero {
-    padding: 50px 0 35px;
+    height: 100vh;
   }
 }
 
@@ -150,8 +151,17 @@
   .hero-content {
     grid-template-columns: 1fr;
     gap: clamp(20px, 4vw, 30px);
-    padding: 0 clamp(14px, 3vw, 20px);
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
     transform: translateZ(15px);
+    justify-items: center;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -167,8 +177,11 @@
 @media (max-width: 480px) {
   .hero-text {
     text-align: center;
-    gap: clamp(12px, 2.5vw, 18px);
+    gap: 0;
     transform: translateZ(12px);
+    width: 100%;
+    max-width: 90vw;
+    padding: 0 clamp(14px, 3vw, 20px);
   }
 }
 
@@ -193,14 +206,16 @@
 
 @media (max-width: 480px) {
   .title-word {
-    font-size: clamp(20px, 7vw, 28px);
-    letter-spacing: -0.5px;
+    font-size: clamp(32px, 12vw, 56px);
+    letter-spacing: -0.8px;
+    line-height: 1.15;
+    font-weight: 900;
   }
 }
 
 @media (max-width: 375px) {
   .title-word {
-    font-size: clamp(18px, 6vw, 22px);
+    font-size: clamp(28px, 10vw, 44px);
   }
 }
 
@@ -213,6 +228,12 @@
   font-weight: 400;
   letter-spacing: 0.2px;
   transform: translateZ(10px);
+}
+
+@media (max-width: 480px) {
+  .hero-subtitle {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -239,9 +260,7 @@
 
 @media (max-width: 480px) {
   .hero-ctas {
-    width: 100%;
-    gap: clamp(8px, 2vw, 12px);
-    flex-direction: column;
+    display: none;
   }
 }
 
@@ -302,10 +321,7 @@
 
 @media (max-width: 480px) {
   .hero-visual {
-    height: clamp(180px, 35vh, 250px);
-    transform: translateZ(12px);
-    margin-top: 20px;
-    width: 100%;
+    display: none;
   }
 }
 
@@ -389,10 +405,7 @@
 
 @media (max-width: 480px) {
   .hero-stats {
-    grid-template-columns: 1fr;
-    gap: clamp(12px, 3vw, 16px);
-    padding: clamp(16px, 3vw, 24px);
-    transform: translateZ(12px);
+    display: none;
   }
 }
 

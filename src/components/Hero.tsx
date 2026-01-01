@@ -69,7 +69,10 @@ export const Hero: React.FC = () => {
       </motion.div>
 
       {/* Content */}
-      <div className="hero-content">
+      <motion.div 
+        className="hero-content"
+        style={{ opacity: Math.max(1 - scrollY / 300, 0) }}
+      >
         <motion.div className="hero-text">
           <h1 className="hero-title">
             {['Engineering', 'Intelligent', 'Automation'].map((word, i) => (
@@ -152,7 +155,7 @@ export const Hero: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Stats */}
       <motion.div className="hero-stats">
