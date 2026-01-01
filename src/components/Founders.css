@@ -57,6 +57,7 @@
   font-size: 24px;
   margin-bottom: 8px;
   transform: translateZ(8px);
+}
 
 .founder-role {
   color: var(--accent-orange);

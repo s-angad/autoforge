@@ -39,12 +39,20 @@
   perspective: 1000px;
 }
 
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    transform: translateZ(15px);
+  }
+}
+
 .feature-item {
   position: relative;
-  padding-left: 100px;
-  margin-bottom: 40px;
+  padding-left: clamp(60px, 15vw, 100px);
+  margin-bottom: clamp(24px, 4vw, 40px);
   display: flex;
-  gap: 20px;
+  gap: clamp(12px, 3vw, 20px);
   transform: translateZ(15px);
   transition: all 0.3s ease;
   cursor: pointer;
@@ -52,6 +60,17 @@
 
 .feature-item:hover {
   transform: translateZ(30px) translateX(10px);
+}
+
+@media (max-width: 480px) {
+  .feature-item {
+    padding-left: clamp(50px, 12vw, 70px);
+    transform: translateZ(8px);
+  }
+  
+  .feature-item:hover {
+    transform: translateZ(12px) translateX(4px);
+  }
 }
 
 .feature-number {
