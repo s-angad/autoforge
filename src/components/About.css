@@ -1,9 +1,13 @@
-/* ABOUT SECTION STYLES */
+/* ============================================
+   ABOUT SECTION STYLES - RESPONSIVE 3D
+   ============================================ */
 
 .about {
   background: linear-gradient(135deg, rgba(26, 26, 26, 0.7), rgba(45, 45, 45, 0.5));
   position: relative;
   overflow: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 .about::before {
@@ -16,6 +20,7 @@
   background: radial-gradient(circle, rgba(255, 106, 0, 0.1), transparent);
   border-radius: 50%;
   z-index: 0;
+  transform: translateZ(-40px);
 }
 
 .about::after {
@@ -28,12 +33,16 @@
   background: radial-gradient(circle, rgba(255, 193, 7, 0.08), transparent);
   border-radius: 50%;
   z-index: 0;
+  transform: translateZ(-40px);
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
+  transform-style: preserve-3d;
+  transform: translateZ(20px);
+  perspective: 1000px;
 }
 
 .about-card {
@@ -41,7 +50,15 @@
   border-radius: 12px;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(15px);
+  perspective: 800px;
+}
+
+.about-card:hover {
+  transform: translateZ(35px) rotateX(-3deg) rotateY(3deg);
+  border-color: rgba(255, 106, 0, 0.3);
+  box-shadow: 0 30px 60px rgba(255, 106, 0, 0.15);
 }
 
 .about-card::before {
@@ -52,13 +69,13 @@
   width: 100%;
   height: 4px;
   background: linear-gradient(90deg, var(--accent-orange), var(--accent-yellow));
-  transform: scaleX(0);
+  transform: scaleX(0) translateZ(5px);
   transform-origin: left;
   transition: transform 0.3s ease;
 }
 
 .about-card:hover::before {
-  transform: scaleX(1);
+  transform: scaleX(1) translateZ(5px);
 }
 
 .card-accent {
@@ -70,32 +87,44 @@
   background: radial-gradient(circle, var(--accent-orange), transparent);
   opacity: 0.1;
   border-radius: 50%;
+  transform: translateZ(0px);
 }
 
 .about-card h3 {
   margin-bottom: 16px;
   position: relative;
   z-index: 1;
+  transform: translateZ(10px);
 }
 
 .about-card p {
   color: var(--text-muted);
   position: relative;
   z-index: 1;
+  transform: translateZ(8px);
 }
 
-.about-card:hover {
-  border-color: rgba(255, 106, 0, 0.3);
-  box-shadow: 0 20px 40px rgba(255, 106, 0, 0.1);
-}
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE FIRST
+   ============================================ */
 
 @media (max-width: 1024px) {
+  .about {
+    perspective: 800px;
+  }
+
   .about-grid {
     gap: 35px;
+    transform: translateZ(18px);
   }
 
   .about-card {
     padding: 35px;
+    transform: translateZ(12px);
+  }
+
+  .about-card:hover {
+    transform: translateZ(30px) rotateX(-2deg) rotateY(2deg);
   }
 
   .about-card h3 {
@@ -104,13 +133,24 @@
 }
 
 @media (max-width: 768px) {
+  .about {
+    perspective: 600px;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+    transform: translateZ(15px);
   }
 
   .about-card {
     padding: 28px;
+    transform: translateZ(10px);
+    perspective: 600px;
+  }
+
+  .about-card:hover {
+    transform: translateZ(22px) rotateX(-1deg) rotateY(1deg);
   }
 
   .about-card h3 {
@@ -124,12 +164,24 @@
 }
 
 @media (max-width: 600px) {
+  .about {
+    perspective: 400px;
+  }
+
   .about-grid {
     gap: 18px;
+    transform: translateZ(12px);
   }
 
   .about-card {
     padding: 24px;
+    transform: translateZ(8px);
+    perspective: 400px;
+  }
+
+  .about-card:hover {
+    transform: translateZ(16px);
+    box-shadow: 0 15px 30px rgba(255, 106, 0, 0.1);
   }
 
   .about-card h3 {
@@ -147,8 +199,17 @@
 }
 
 @media (max-width: 480px) {
+  .about-grid {
+    transform: translateZ(10px);
+  }
+
   .about-card {
     padding: 20px;
+    transform: translateZ(6px);
+  }
+
+  .about-card:hover {
+    transform: translateZ(12px);
   }
 
   .about-card h3 {
@@ -158,5 +219,27 @@
   .card-accent {
     width: 120px;
     height: 120px;
+  }
+}
+
+@media (max-width: 375px) {
+  .about-card {
+    padding: 18px;
+  }
+
+  .about-card h3 {
+    font-size: 14px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .about-card,
+  .about-card::before {
+    transition: none;
+  }
+
+  .about-card:hover {
+    transform: translateZ(8px);
   }
 }

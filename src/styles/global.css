@@ -1,5 +1,6 @@
 /* ============================================
    AUTOFORGE SYSTEMS - GLOBAL STYLES
+   RESPONSIVE + 3D ENHANCED
    ============================================ */
 
 * {
@@ -19,6 +20,7 @@
   --text-muted: #999999;
   --glow-orange: 0 0 20px rgba(255, 106, 0, 0.3);
   --glow-yellow: 0 0 20px rgba(255, 193, 7, 0.3);
+  --perspective-depth: 1000px;
 }
 
 html {
@@ -26,6 +28,7 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  perspective: var(--perspective-depth);
 }
 
 body {
@@ -36,6 +39,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
+  transform-style: preserve-3d;
 }
 
 body::before {
@@ -51,10 +55,11 @@ body::before {
     radial-gradient(circle at 40% 0%, rgba(255, 106, 0, 0.04) 0%, transparent 50%);
   pointer-events: none;
   z-index: -1;
+  transform: translateZ(-10px);
 }
 
 /* ============================================
-   TYPOGRAPHY
+   TYPOGRAPHY - RESPONSIVE
    ============================================ */
 
 h1, h2, h3, h4, h5, h6 {
@@ -129,7 +134,7 @@ a {
 }
 
 /* ============================================
-   BUTTONS
+   BUTTONS - 3D ENHANCED
    ============================================ */
 
 .btn {
@@ -146,6 +151,7 @@ a {
   position: relative;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
+  transform: translateZ(0);
 }
 
 .btn-primary {
@@ -196,10 +202,12 @@ section {
 .section-header {
   text-align: center;
   margin-bottom: 80px;
+  perspective: var(--perspective-depth);
 }
 
 .section-header h2 {
   margin-bottom: 24px;
+  transform: translateZ(20px);
 }
 
 .accent-line {
@@ -209,10 +217,27 @@ section {
   margin: 20px auto 0;
   border-radius: 2px;
   display: block;
+  transform: translateZ(15px);
 }
 
 /* ============================================
-   GLASSMORPHISM
+   3D SECTIONS & PERSPECTIVE
+   ============================================ */
+
+section {
+  position: relative;
+  perspective: var(--perspective-depth);
+  transform-style: preserve-3d;
+}
+
+.section-content {
+  position: relative;
+  z-index: 2;
+  transform-style: preserve-3d;
+}
+
+/* ============================================
+   GLASSMORPHISM + 3D
    ============================================ */
 
 .glass {
@@ -220,12 +245,20 @@ section {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
+  transform: translateZ(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass:hover {
+  transform: translateZ(20px);
+  border-color: rgba(255, 106, 0, 0.3);
 }
 
 .glass-thick {
   background: rgba(11, 11, 11, 0.7);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.05);
+  transform: translateZ(8px);
 }
 
 /* ============================================
@@ -256,10 +289,14 @@ section {
 }
 
 /* ============================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN - MOBILE FIRST
    ============================================ */
 
 @media (max-width: 1024px) {
+  :root {
+    --perspective-depth: 800px;
+  }
+
   h1 {
     font-size: 48px;
   }
@@ -286,6 +323,10 @@ section {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --perspective-depth: 600px;
+  }
+
   h1 {
     font-size: 36px;
   }
@@ -298,8 +339,13 @@ section {
     font-size: 18px;
   }
 
+  h4 {
+    font-size: 16px;
+  }
+
   p {
     font-size: 14px;
+    line-height: 1.7;
   }
 
   .container {
@@ -326,8 +372,13 @@ section {
 }
 
 @media (max-width: 600px) {
+  :root {
+    --perspective-depth: 400px;
+  }
+
   h1 {
     font-size: 28px;
+    letter-spacing: -0.8px;
   }
 
   h2 {
@@ -338,8 +389,13 @@ section {
     font-size: 16px;
   }
 
+  h4 {
+    font-size: 14px;
+  }
+
   p {
     font-size: 13px;
+    line-height: 1.6;
   }
 
   .container {
@@ -358,12 +414,18 @@ section {
     padding: 11px 20px;
     font-size: 11px;
     width: 100%;
+    transform: translateZ(8px);
+  }
+
+  .accent-line {
+    width: 50px;
   }
 }
 
 @media (max-width: 480px) {
   h1 {
     font-size: 24px;
+    letter-spacing: -0.6px;
   }
 
   h2 {
@@ -372,6 +434,10 @@ section {
 
   h3 {
     font-size: 15px;
+  }
+
+  h4 {
+    font-size: 13px;
   }
 
   p {
@@ -391,15 +457,28 @@ section {
     font-size: 10px;
     width: 100%;
   }
+
+  .section-header {
+    margin-bottom: 30px;
+  }
 }
 
 @media (max-width: 375px) {
   h1 {
     font-size: 20px;
+    margin-bottom: 16px;
   }
 
   h2 {
     font-size: 18px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 11px;
   }
 
   .container {
@@ -407,8 +486,37 @@ section {
   }
 
   section {
-    padding: 30px 0;
+    padding: 28px 0;
   }
+
+  .btn {
+    padding: 9px 16px;
+    font-size: 9px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY & PERFORMANCE
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* GPU Acceleration - Use sparingly */
+.gpu-accelerate {
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* ============================================

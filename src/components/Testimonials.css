@@ -1,7 +1,11 @@
-/* TESTIMONIALS SECTION STYLES */
+/* ============================================
+   TESTIMONIALS SECTION STYLES - RESPONSIVE 3D
+   ============================================ */
 
 .testimonials {
   background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(45, 45, 45, 0.3));
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 .testimonial-slider {
@@ -9,28 +13,36 @@
   justify-content: center;
   margin-bottom: 40px;
   min-height: 300px;
+  transform-style: preserve-3d;
+  transform: translateZ(20px);
+  perspective: 1000px;
 }
 
 .testimonial-card {
   padding: 40px;
   border-radius: 12px;
   max-width: 600px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(15px);
+  perspective: 800px;
 }
 
 .testimonial-card:hover {
+  transform: translateZ(30px) rotateX(-2deg);
   border-color: rgba(255, 106, 0, 0.3);
-  box-shadow: 0 20px 40px rgba(255, 106, 0, 0.1);
+  box-shadow: 0 30px 60px rgba(255, 106, 0, 0.15);
 }
 
 .stars {
   color: var(--accent-yellow);
   margin-bottom: 20px;
   font-size: 14px;
+  transform: translateZ(10px);
 }
 
 .stars i {
   margin-right: 4px;
+  transition: all 0.2s ease;
 }
 
 .testimonial-text {
@@ -38,6 +50,7 @@
   line-height: 1.8;
   margin-bottom: 24px;
   font-style: italic;
+  transform: translateZ(8px);
   color: var(--text-light);
 }
 

@@ -1,9 +1,13 @@
-/* PROCESS SECTION STYLES */
+/* ============================================
+   PROCESS SECTION STYLES - RESPONSIVE 3D
+   ============================================ */
 
 .process {
   background: linear-gradient(135deg, rgba(15, 15, 30, 0.7), rgba(26, 26, 26, 0.5));
   position: relative;
   overflow: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 .process::before {
@@ -16,6 +20,7 @@
   background: radial-gradient(circle, rgba(255, 193, 7, 0.08), transparent);
   border-radius: 50%;
   z-index: 0;
+  transform: translateZ(-40px);
 }
 
 .process::after {
@@ -28,11 +33,15 @@
   background: radial-gradient(circle, rgba(255, 106, 0, 0.06), transparent);
   border-radius: 50%;
   z-index: 0;
+  transform: translateZ(-40px);
 }
 
 .timeline {
   display: grid;
   gap: 60px;
+  transform-style: preserve-3d;
+  transform: translateZ(20px);
+  perspective: 1000px;
 }
 
 .timeline-item {
@@ -40,6 +49,12 @@
   grid-template-columns: 80px 1fr;
   gap: 40px;
   position: relative;
+  transform: translateZ(15px);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateZ(30px) translateX(10px);
 }
 
 .timeline-number {
@@ -55,6 +70,13 @@
   color: var(--primary);
   cursor: pointer;
   transition: all 0.3s ease;
+  transform: translateZ(10px);
+  box-shadow: 0 10px 30px rgba(255, 106, 0, 0.2);
+}
+
+.timeline-item:hover .timeline-number {
+  transform: translateZ(25px) scale(1.1);
+  box-shadow: 0 20px 50px rgba(255, 106, 0, 0.35);
 }
 
 .timeline-item::before {
@@ -65,6 +87,7 @@
   width: 0;
   height: 60px;
   border-left: 2px dashed rgba(255, 106, 0, 0.3);
+  transform: translateZ(5px);
 }
 
 .timeline-item:last-child::before {
@@ -73,6 +96,7 @@
 
 .timeline-content {
   padding-top: 8px;
+  transform: translateZ(8px);
 }
 
 .timeline-content h3 {
