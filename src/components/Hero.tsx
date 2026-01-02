@@ -6,11 +6,20 @@ import './Hero.css'
 export const Hero: React.FC = () => {
   const scrollY = useScrollY()
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 480
+  const fadeStartDistance = 600 // Start fade after scrolling this far
+  const fadeEndDistance = 900 // Complete fade after scrolling this far
+  
+  // Calculate fade intensity based on scroll distance
+  const fadeIntensity = Math.max(0, Math.min(1, (scrollY - fadeStartDistance) / (fadeEndDistance - fadeStartDistance)))
+  const heroOpacity = 1 - fadeIntensity
+
   const titleVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 40, rotateX: -20 },
     visible: (index: number) => ({
       opacity: 1,
       y: 0,
+      rotateX: 0,
       transition: {
         duration: 0.8,
         delay: 0.1 + index * 0.15,
@@ -20,29 +29,53 @@ export const Hero: React.FC = () => {
   }
 
   const subtitleVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 20, rotateX: -15 },
     visible: {
       opacity: 1,
+      y: 0,
+      rotateX: 0,
       transition: { duration: 0.8, delay: 0.4, ease: 'easeOut' }
     }
   }
 
   const buttonVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
     visible: {
       opacity: 1,
+      y: 0,
+      scale: 1,
       transition: { duration: 0.8, delay: 0.5, ease: 'easeOut' }
     }
   }
 
   const floatingVariants = {
     animate: {
-      y: [0, -20, 0],
+      y: [0, -25, 0],
+      opacity: [0.9, 1, 0.9],
       transition: {
-        duration: 4,
+        duration: 4.5,
         ease: 'easeInOut',
         repeat: Infinity
       }
+    }
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.8, rotateY: -45 },
+    visible: (index: number) => ({
+      opacity: 1,
+      scale: 1,
+      rotateY: 0,
+      transition: {
+        duration: 0.8,
+        delay: 0.6 + index * 0.1,
+        ease: 'easeOut'
+      }
+    }),
+    hover: {
+      scale: 1.08,
+      rotateY: 8,
+      transition: { duration: 0.3, ease: 'easeOut' }
     }
   }
 
@@ -71,7 +104,11 @@ export const Hero: React.FC = () => {
       {/* Content */}
       <motion.div 
         className="hero-content"
-        style={{ opacity: Math.max(1 - scrollY / 300, 0) }}
+        style={{ 
+          opacity: heroOpacity,
+          perspective: '1000px',
+          rotateX: fadeIntensity * -5
+        }}
       >
         <motion.div className="hero-text">
           <h1 className="hero-title">

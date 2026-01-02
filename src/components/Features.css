@@ -2,12 +2,28 @@
    FEATURES SECTION STYLES - RESPONSIVE 3D
    ============================================ */
 
+@keyframes floatSmooth {
+  0%, 100% { transform: translateY(0px) translateZ(-40px); }
+  50% { transform: translateY(20px) translateZ(-40px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px) rotateY(30deg); }
+  to { opacity: 1; transform: translateX(0) rotateY(0); }
+}
+
 .features {
   background: linear-gradient(135deg, rgba(26, 26, 26, 0.6), rgba(45, 45, 45, 0.4));
   position: relative;
   overflow: hidden;
   perspective: 1000px;
   transform-style: preserve-3d;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .features::before {
@@ -56,10 +72,16 @@
   transform: translateZ(15px);
   transition: all 0.3s ease;
   cursor: pointer;
+  animation: slideInLeft 0.8s ease-out backwards;
 }
 
+.feature-item:nth-child(1) { animation-delay: 0.1s; }
+.feature-item:nth-child(2) { animation-delay: 0.2s; }
+.feature-item:nth-child(3) { animation-delay: 0.3s; }
+.feature-item:nth-child(4) { animation-delay: 0.4s; }
+
 .feature-item:hover {
-  transform: translateZ(30px) translateX(10px);
+  transform: translateZ(30px) translateX(10px) rotateY(2deg);
 }
 
 @media (max-width: 480px) {

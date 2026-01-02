@@ -2,12 +2,28 @@
    SERVICES SECTION STYLES - RESPONSIVE 3D
    ============================================ */
 
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px) rotateY(30deg); }
+  to { opacity: 1; transform: translateX(0) rotateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px) rotateY(-30deg); }
+  to { opacity: 1; transform: translateX(0) rotateY(0); }
+}
+
 .services {
   background: linear-gradient(135deg, rgba(11, 11, 11, 0.8), rgba(26, 26, 26, 0.6));
   position: relative;
   overflow: hidden;
   perspective: 1000px;
   transform-style: preserve-3d;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .services::before {
@@ -56,7 +72,13 @@
   transform-style: preserve-3d;
   transform: translateZ(15px);
   perspective: 800px;
+  animation: fadeInUp 0.8s ease-out backwards;
+  animation-fill-mode: both;
 }
+
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
 
 @media (max-width: 480px) {
   .service-card {
